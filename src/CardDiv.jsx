@@ -4,26 +4,22 @@ import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function cardMap(props){
-    return(
-        <>
-        {/* <div className="card-box"> */}
-        {/* slice holo koto ggolo letter show korate chao */}
-            <Card 
-             image={props.image}  
-             title={props.title.slice(0,50)} 
-             description={props.description.slice(0,50)}   
-             rating={props.rating}   
-             genre={props.genre}   
-             trailer={props.trailer}    
-            />
-            
-            
-        
-
-        </>
-    );
-}
+// function cardMap(props){
+//     return(
+//         <>
+//         {/* <div className="card-box"> */}
+//         {/* slice holo koto ggolo letter show korate chao */}
+//             <Card 
+//              image={props.image}  
+//              title={props.title.slice(0,50)} 
+//              description={props.description.slice(0,50)}   
+//              rating={props.rating}   
+//              genre={props.genre}   
+//              trailer={props.trailer}    
+//             />
+//         </>
+//     );
+// }
 function CardDiv(){
         
     const [apiArr, setapiArr] = useState([]);
@@ -51,7 +47,16 @@ function CardDiv(){
     return(
         <>
         
-        {apiArr.map(cardMap)}
+        {apiArr.map((props) => (
+            <Card 
+             image={props.image}  
+             title={props.title.slice(0,50)} 
+             description={props.description.slice(0,50)}   
+             rating={props.rating}   
+             genre={props.genre}   
+             trailer={props.trailer}    
+            />
+        ))}
         </>
     );
 }
